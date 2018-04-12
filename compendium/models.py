@@ -48,10 +48,11 @@ class CompendiumPageTag(TaggedItemBase):
     )
 
 class CapstonePage(Page):
-    date = models.DateField("Post date")
-    student_name = models.CharField(max_length=250)
+    # date = models.DateField("Post date")
+    name = models.CharField(max_length=250)
     body = RichTextField(blank=True)
     tags = ClusterTaggableManager(through=CompendiumPageTag, blank=True)
+    semester = models.CharField(max_length=250)
 
     # def main_image(self):
     #     gallery_item = self.gallery_images.first()
@@ -61,16 +62,18 @@ class CapstonePage(Page):
     #         return None
 
     search_fields = Page.search_fields + [
-        index.SearchField('intro'),
+        index.SearchField('name'),
         index.SearchField('body'),
+        index.SearchField('semester'),
     ]
 
     content_panels = Page.content_panels + [
         MultiFieldPanel([
-            FieldPanel('date'),
+            FieldPanel('name'),
+            FieldPanel('semester'),
+            # FieldPanel('date'),
             FieldPanel('tags'),
         ], heading="Capstone information"),
-        FieldPanel('student_name'),
         FieldPanel('body'),
         # InlinePanel('gallery_images', label="Gallery images"),
     ]

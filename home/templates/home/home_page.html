@@ -5,5 +5,19 @@
 {% block body_class %}template-homepage{% endblock %}
 
 {% block content %}
+    <h1>{{ page.title }}</h1>
     {{ page.body|richtext }}
+
+        {% for post in capstonepages %}
+        {% with post=post.specific %}
+        <div class="capstone-post">
+            <h2><a href="{% pageurl post %}">{{ post.title }}</a></h2>
+            <p>{{ post.semester }} | {{ post.name }}</p>
+            {{ post.body|richtext|truncatechars:255 }}
+            
+            <a class="btn btn-secondary" href="{% pageurl post %}" role="button">Read more »</a>
+        </div>
+        <hr/>
+            {% endwith %}
+    {% endfor %}
 {% endblock %}

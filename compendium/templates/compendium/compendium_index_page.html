@@ -13,8 +13,9 @@
     {% with post=post.specific %}
     <div class="capstone-post">
         <h2><a href="{% pageurl post %}">{{ post.title }}</a></h2>
-        <p>{{ post.student_name }}</p>
-        {{ post.body|richtext }}
+        <p>{{ post.semester }} | {{ post.name }}</p>
+        {{ post.body|richtext|truncatechars:255 }}
+        
         <a class="btn btn-secondary" href="{% pageurl post %}" role="button">Read more »</a>
     </div>
     <hr/>

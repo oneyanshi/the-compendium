@@ -1,9 +1,13 @@
 body {
   padding-top: 5rem;
 }
+
+.brand-font { 
+  font-family: 'Abel', Arial, Helvetica, sans-serif;
+}
+
 .starter-template {
   padding: 0rem 1.5rem;
-
 }
 
 .capstone-post {
