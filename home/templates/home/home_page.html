@@ -1,23 +1,35 @@
 {% extends "base.html" %}
 
-{% load wagtailcore_tags %}
+{% load wagtailcore_tags wagtailimages_tags %}
 
 {% block body_class %}template-homepage{% endblock %}
 
 {% block content %}
     <h1>{{ page.title }}</h1>
     {{ page.body|richtext }}
-
+    <div class="container">
+        <div class="row">
+    <div class="card-deck mb-3">
         {% for post in capstonepages %}
         {% with post=post.specific %}
-        <div class="capstone-post">
-            <h2><a href="{% pageurl post %}">{{ post.title }}</a></h2>
-            <p>{{ post.semester }} | {{ post.name }}</p>
-            {{ post.body|richtext|truncatechars:255 }}
-            
-            <a class="btn btn-secondary" href="{% pageurl post %}" role="button">Read more »</a>
+        <div class="col-md-4">
+            <div class="card mb-4 box-shadow">
+                {% for item in post.gallery_images.all %}
+                {% image item.image original as photo %}
+              <img class="card-img-top" src="{{ photo.url }}" alt="{{ photo.caption }}" height="250">
+                {% endfor %}
+              <div class="card-body">
+                <h5 class="card-title">{{ post.title }}</h5>
+                <p class="card-text">{{ post.summary|richtext }}</p>
+            </div>
+            <div class="card-footer">                
+                    <a href="{% pageurl post %}" class="btn btn-primary" style="float: right">Read More</a>
+                    </div>
+            </div>
         </div>
-        <hr/>
-            {% endwith %}
-    {% endfor %}
-{% endblock %}
+          {% endwith %}
+          {% endfor %} 
+    </div>
+</div>
+</div>
+    {% endblock %}

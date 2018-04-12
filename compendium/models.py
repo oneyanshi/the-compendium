@@ -50,16 +50,17 @@ class CompendiumPageTag(TaggedItemBase):
 class CapstonePage(Page):
     # date = models.DateField("Post date")
     name = models.CharField(max_length=250)
+    summary = RichTextField(blank=True, max_length=250)
     body = RichTextField(blank=True)
     tags = ClusterTaggableManager(through=CompendiumPageTag, blank=True)
     semester = models.CharField(max_length=250)
 
-    # def main_image(self):
-    #     gallery_item = self.gallery_images.first()
-    #     if gallery_item:
-    #         return gallery_item.image
-    #     else:
-    #         return None
+    def main_image(self):
+        gallery_item = self.gallery_images.first()
+        if gallery_item:
+            return gallery_item.image
+        else:
+            return None
 
     search_fields = Page.search_fields + [
         index.SearchField('name'),
@@ -74,18 +75,19 @@ class CapstonePage(Page):
             # FieldPanel('date'),
             FieldPanel('tags'),
         ], heading="Capstone information"),
+        FieldPanel('summary'),
         FieldPanel('body'),
-        # InlinePanel('gallery_images', label="Gallery images"),
+        InlinePanel('gallery_images', label="Gallery images"),
     ]
     
-# class BlogPageGalleryImage(Orderable):
-#     page = ParentalKey(BlogPage, on_delete=models.CASCADE, related_name='gallery_images')
-#     image = models.ForeignKey(
-#         'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
-#     )
-#     caption = models.CharField(blank=True, max_length=250)
+class CapstonePageGalleryImage(Orderable):
+    page = ParentalKey(CapstonePage, on_delete=models.CASCADE, related_name='gallery_images')
+    image = models.ForeignKey(
+        'wagtailimages.Image', on_delete=models.CASCADE, related_name='+'
+    )
+    caption = models.CharField(blank=True, max_length=250)
 
-#     panels = [
-#         ImageChooserPanel('image'),
-#         FieldPanel('caption'),
-#     ]
+    panels = [
+        ImageChooserPanel('image'),
+        FieldPanel('caption'),
+    ]

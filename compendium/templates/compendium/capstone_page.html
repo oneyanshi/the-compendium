@@ -10,6 +10,13 @@
 
     <div class="student_name">{{ page.name }}</div>
 
+    {% for item in page.gallery_images.all%}
+    <div style="float: right; margin: 10px">
+        {% image item.image fill-300x300 %}
+        <p>{{ item.caption }}</p>
+    </div>
+    {% endfor %}
+
     {{ page.body|richtext }}
 
     {% if page.tags.all.count %}
@@ -24,3 +31,4 @@
     <p><a href="{{ page.get_parent.url }}">Return to blog</a></p>
 
 {% endblock %}
+

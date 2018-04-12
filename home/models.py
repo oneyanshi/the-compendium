@@ -14,5 +14,5 @@ class HomePage(Page):
 
     def get_context(self, request): 
         context = super(HomePage, self).get_context(request)
-        context['capstonepages'] = CapstonePage.objects.live().order_by('-first_published_at')
+        context['capstonepages'] = CapstonePage.objects.live().order_by('-first_published_at')[:3]
         return context 
