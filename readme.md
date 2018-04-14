@@ -6,7 +6,9 @@ More specifically, it is a content management system built using [Wagtail](https
 
 ## Installation
 
-You must have [Python](https://www.python.org/downloads/) and [pip](https://pip.pypa.io/en/latest/installing.html) installed. Additionally, I recommend using [virtualenv](https://virtualenv.pypa.io/en/latest/installation.html) to separate development environments.   
+You must have [Python](https://www.python.org/downloads/) and [pip](https://pip.pypa.io/en/latest/installing.html) installed. 
+
+Additionally, I recommend using [virtualenv](https://virtualenv.pypa.io/en/latest/installation.html) to separate development environments.   
 
 After doing the above, you must do the following: 
 
@@ -25,3 +27,5 @@ And then do the following:
     ./manage.py runserver 
 
 ## Development  
+
+I highly recommend on reading up on documentation on Wagtail and how development works. It is "object-oriented," and changes are made by doing migrations. It is **imperative** to use branching when working on this project, otherwise you may do something or lose work that you wanted/didn't want. 
