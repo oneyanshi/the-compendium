@@ -6,7 +6,7 @@ More specifically, it is a content management system built using [Wagtail](https
 
 ## Installation
 
-You must have (https://www.python.org/downloads/)[Python] and (https://pip.pypa.io/en/latest/installing.html)[pip] installed. Additionally, I recommend using (https://virtualenv.pypa.io/en/latest/installation.html)[virtualenv] to separate development environments.   
+You must have [Python](https://www.python.org/downloads/) and [pip](https://pip.pypa.io/en/latest/installing.html) installed. Additionally, I recommend using [virtualenv](https://virtualenv.pypa.io/en/latest/installation.html) to separate development environments.   
 
 After doing the above, you must do the following: 
 
