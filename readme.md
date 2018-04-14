@@ -14,14 +14,14 @@ After doing the above, you must do the following:
 
 After, you'll be able to clone the project. 
 
-                git clone git@github.com:oneyanshi/the-compendium.git
-                cd the-compendium
-                pip install -r requirements.txt 
+    git clone git@github.com:oneyanshi/the-compendium.git
+    cd the-compendium
+    pip install -r requirements.txt 
 
 And then do the following: 
 
-                ./manage.py migrate 
-                ./manage.py load_initial_data 
-                ./manage.py runserver 
+    ./manage.py migrate 
+    ./manage.py load_initial_data 
+    ./manage.py runserver 
 
 ## Development  
