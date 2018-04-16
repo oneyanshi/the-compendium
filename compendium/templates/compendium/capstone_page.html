@@ -5,30 +5,30 @@
 {% block body_class %}template-capstonepage{% endblock %}
 
 {% block content %}
+<div class="container gallery"> 
     <h1>{{ page.title }}</h1>
-    <p class="meta">{{ page.semester }}</p>
 
-    <div class="student_name">{{ page.name }}</div>
+    <h4>{{ page.semester }} - {{ page.name }}</h4>
 
     {% for item in page.gallery_images.all%}
     <div style="float: right; margin: 10px">
-        {% image item.image fill-300x300 %}
+        {% image item.image width-500 %}
         <p>{{ item.caption }}</p>
     </div>
     {% endfor %}
-
+    <div class="body-copy"> 
     {{ page.body|richtext }}
-
+    </div>
     {% if page.tags.all.count %}
     <div class="tags">
-        <h3>Tags</h3>
+        <h5>Tags</h5>
         {% for tag in page.tags.all %}
-            <a href="{% slugurl 'tags' %}?tag={{ tag }}"><button type="button">{{ tag }}</button></a>
+            <a href="{% slugurl 'tags' %}?tag={{ tag }}"><button type="button" class="btn btn-light">{{ tag }}</button></a>
         {% endfor %}
     </div>
 {% endif %}
-
-    <p><a href="{{ page.get_parent.url }}">Return to blog</a></p>
+    <a class="btn btn-dark" style="background-color:rgb(20, 0, 117);" href="{{ page.get_parent.url }}">&laquo; Back to Archives</a>
+</div>
 
 {% endblock %}
 

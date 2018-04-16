@@ -13,20 +13,6 @@ from wagtail.search import index
 
 
 # Create your models here.
-class CompendiumIndexPage(Page): 
-    intro = RichTextField(blank=True)
-
-    content_panels = Page.content_panels + [
-        FieldPanel('intro'), 
-    ]
-
-    def get_context(self, request):
-        # Update context to include only published posts, ordered by reverse-chron
-        context = super().get_context(request)
-        capstonepages = self.get_children().live().order_by('-first_published_at')
-        context['capstonepages'] = capstonepages
-        return context
-
 class CompendiumTagIndexPage(Page):
 
     def get_context(self, request):
@@ -66,6 +52,7 @@ class CapstonePage(Page):
         index.SearchField('name'),
         index.SearchField('body'),
         index.SearchField('semester'),
+        index.SearchField('tags'), 
     ]
 
     content_panels = Page.content_panels + [

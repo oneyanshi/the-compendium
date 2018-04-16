@@ -28,6 +28,9 @@ INSTALLED_APPS = [
     'search',
     'compendium',
 
+    'modelcluster',
+    'taggit',
+
     'wagtail.contrib.forms',
     'wagtail.contrib.redirects',
     'wagtail.embeds',
@@ -39,9 +42,6 @@ INSTALLED_APPS = [
     'wagtail.search',
     'wagtail.admin',
     'wagtail.core',
-
-    'modelcluster',
-    'taggit',
 
     'django.contrib.admin',
     'django.contrib.auth',

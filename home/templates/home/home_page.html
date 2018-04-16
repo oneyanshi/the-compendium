@@ -5,25 +5,28 @@
 {% block body_class %}template-homepage{% endblock %}
 
 {% block content %}
+<div class="container gallery">
     <h1>{{ page.title }}</h1>
     {{ page.body|richtext }}
-    <div class="container">
+    <div class="container gallery">
         <div class="row">
-    <div class="card-deck mb-3">
+    <div class="card-deck mb-3 justify-content-center">
         {% for post in capstonepages %}
         {% with post=post.specific %}
-        <div class="col-md-4">
-            <div class="card mb-4 box-shadow">
+        <div class="col-md-6">
+                <hr class="colored"> 
+            <div class="card mb-6 box-shadow">
                 {% for item in post.gallery_images.all %}
                 {% image item.image original as photo %}
               <img class="card-img-top" src="{{ photo.url }}" alt="{{ photo.caption }}" height="250">
                 {% endfor %}
               <div class="card-body">
-                <h5 class="card-title">{{ post.title }}</h5>
+                <h5 class="card-title">{{ post.title }} - {{post.semester}}</h5>
+                <h7 class="card-text">{{ post.name }}</h7>
                 <p class="card-text">{{ post.summary|richtext }}</p>
             </div>
             <div class="card-footer">                
-                    <a href="{% pageurl post %}" class="btn btn-primary" style="float: right">Read More</a>
+                    <a href="{% pageurl post %}" class="btn btn-dark" style="float: right; background-color:rgb(20, 0, 117);">Read More</a>
                     </div>
             </div>
         </div>
@@ -32,4 +35,31 @@
     </div>
 </div>
 </div>
+</div>
+<div class="container gallery">
+<nav aria-label = "Page navigation"> 
+<ul class="pagination pagination-lg justify-content-center">
+        {% if capstonepages.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ capstonepages.previous_page_number }}">
+            <span aria-hidden="true">&laquo;</span>
+            <span class="sr-only">Previous</span>
+            </a>
+        </li>
+        {% endif %}
+        {% for page_num in capstonepages.paginator.page_range %}
+        <li {% if page_num == capstonepages.number %} class="page-item active"{% endif %}><a class="page-link"href="?page={{ page_num }}">{{ page_num }}</a></li>
+        {% endfor %} 
+        {% if capstonepages.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ capstonepages.next_page_number }}">
+            <span aria-hidden="true">&raquo;</span>
+            <span class="sr-only">Next</span>
+            </a>
+        </li>
+        {% endif %}
+      </ul>
+</nav>
+</div>
+
     {% endblock %}

@@ -11,10 +11,6 @@
 
           <p>
               <strong><a href="{% pageurl capstonepage %}">{{ capstonepage.title }}</a></strong><br />
-              <small>Revised: {{ capstonepage.latest_revision_created_at }}</small><br />
-              {% if capstonepage.author %}
-                <p>By {{ capstonepage.author.profile }}</p>
-              {% endif %}
           </p>
 
     {% empty %}

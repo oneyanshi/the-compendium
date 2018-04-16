@@ -2,6 +2,14 @@ body {
   padding-top: 5rem;
 }
 
+h1 { 
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.student-name { 
+  font-size: 20px; 
+}
+
 .brand-font { 
   font-family: 'Abel', Arial, Helvetica, sans-serif;
 }
@@ -13,3 +21,38 @@ body {
 .capstone-post {
   margin-bottom: 4rem;
 }
+
+.gallery { 
+  padding-top: 50px; 
+}
+
+.body-copy{ 
+  padding-top: 10px; 
+}
+
+.tags{ 
+  padding-top: 50px;
+  padding-bottom: 50px;  
+}
+
+.colored { 
+  border: 0;   /* in order to override TWBS stylesheet */
+  width: 300px; 
+  height: 5px;
+  background-color: rgb(12, 0, 74);
+}
+
+.pagination > li > a {
+  background: white;
+  color: black;
+}
+
+.pagination li.active a {
+  background-color: rgb(12, 0, 74) !important;
+  color: white;
+}
+
+.pagination li:hover:not(.active) a {
+  color: black !important; 
+}
+
