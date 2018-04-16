@@ -32,4 +32,4 @@ I highly recommend on reading up on documentation on Wagtail and how development
 
 ## Deployment 
 
-So what about deployment?  
+So what about deployment? Great question! There shouldn't be a reason for me to reinvent the wheel in terms of providing a tutorial, but [this resource works pretty well](https://vix.digital/insights/deploying-wagtail-production/).  
