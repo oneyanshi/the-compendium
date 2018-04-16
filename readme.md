@@ -32,4 +32,6 @@ I highly recommend on reading up on documentation on Wagtail and how development
 
 ## Deployment 
 
-So what about deployment? Great question! There shouldn't be a reason for me to reinvent the wheel in terms of providing a tutorial, but [this resource works pretty well](https://vix.digital/insights/deploying-wagtail-production/).  
+So what about deployment? Great question! There shouldn't be a reason for me to reinvent the wheel in terms of providing a tutorial, but [this resource works pretty well](https://vix.digital/insights/deploying-wagtail-production/). Something to note is that any static elements will need to be hosted and/or served through different means, but the tutorial discusses options, ranging from Whitenoise to using Amazon S3. 
+
+Additionally, if you would like to host it on Heroku, the directions on [Wagtail's site](https://wagtail.io/blog/wagtail-heroku-2017/) will help.   
