@@ -40,4 +40,6 @@ The database will also need to be changed. Currently, it is running on SQLITE--w
 
 This would require the changing of the variable ```DATABASES``` and an addition of a variable, ```WAGTAILSEARCH_BACKENDS``` in ```base.py```.  [Wagtail's documentation shows how to do this.](http://docs.wagtail.io/en/latest/reference/contrib/postgres_search.html#postgres-search) 
 
-You should have Postgresql running locally on your machine or up and running on your host and fill in the appropriate configurations. 
+You should have Postgresql running locally on your machine or up and running on your host and fill in the appropriate configurations based on the local machine. However, these settings are applicable to testing/development environment. The setup may be different for production.
+
+Also, when setting up the database, the previous database may get cleaned out and overall deleted.  
