@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from compendium.models import CapstonePage
+from wagtail.core.models import Page
 from wagtail.search.models import Query 
 
 # Create your views here.
@@ -19,5 +20,5 @@ def search(request):
     
     return render(request, 'search.html', {
         'search_query': search_query,
-        'search_results:', search_results
+        'search_results':, search_results,
     })

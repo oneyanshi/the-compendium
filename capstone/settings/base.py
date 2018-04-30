@@ -42,6 +42,7 @@ INSTALLED_APPS = [
     'wagtail.search',
     'wagtail.admin',
     'wagtail.core',
+    'wagtail.contrib.postgres_search',
 
     'django.contrib.admin',
     'django.contrib.auth',
@@ -92,9 +93,20 @@ WSGI_APPLICATION = 'capstone.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': "thecompendium",
+        'USER': "capstone", 
+        'PASSWORD': '',
+        'HOST': 'localhost',
+        'PORT': '',
+        'CONN_MAX_AGE': 600, 
     }
+}
+
+WAGTAILSEARCH_BACKENDS = {
+    'default': {
+        'BACKEND': 'wagtail.contrib.postgres_search.backend',
+    },
 }
 
 
