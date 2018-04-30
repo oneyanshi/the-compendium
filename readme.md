@@ -34,4 +34,6 @@ I highly recommend on reading up on documentation on Wagtail and how development
 
 So what about deployment? Great question! There shouldn't be a reason for me to reinvent the wheel in terms of providing a tutorial, but [this resource works pretty well](https://vix.digital/insights/deploying-wagtail-production/). Something to note is that any static elements will need to be hosted and/or served through different means, but the tutorial discusses options, ranging from Whitenoise to using Amazon S3. 
 
-Additionally, if you would like to host it on Heroku, the directions on [Wagtail's site](https://wagtail.io/blog/wagtail-heroku-2017/) will help.   
+Additionally, if you would like to host it on Heroku, the directions on [Wagtail's site](https://wagtail.io/blog/wagtail-heroku-2017/) will help. 
+
+Additionally, the database will also need to be changed. Currently, it is running on SQLITE--which is fine given the size of the website, but this default database doesn't provide a robust enough search for users. Currently, it only looks at the title of the capstone project rather than the full text on a given page, from its content to the authors of the project, etc. Upon research, it is appropriate to assume that Postgresql would work just fine for the purposes of the computer science department. This would require the changing of the variable ```DATABASES``` and an addition of a variable, ```WAGTAILSEARCH_BACKENDS``` in ```base.py```.  
